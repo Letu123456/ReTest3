@@ -1,0 +1,31 @@
+﻿@page
+@model AnhTu_Assig2.Pages.ProductCRUD.ProductDetailModel
+@{
+    ViewData["Title"] = Model.Product.ProductName;
+}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-6">
+            <img src="/images/images/@Model.Product.Image" alt="@Model.Product.ProductName" class="img-fluid"
+            style="width:90%;height:320px" />
+        </div>
+        <div class="col-md-6">
+            <h1>@Model.Product.ProductName</h1>
+            <h3>@Model.Product.UnitPrice.ToString("C")</h3>
+            <p>Category: @Model.Product.Categories.CategoryName</p>
+            <p>Category: @Model.Product.Suppliers.CompanyName</p>
+            <p>@Model.Product.QuantityPerUnit</p>
+            
+            <form method="post" asp-page="/ProductCRUD/ShoppingCartModel" asp-page-handler="AddToCart">
+                <input type="hidden" name="ProductId" value="@Model.Product.ProductId" />
+                <div class="form-group">
+                    <label for="quantity">Quantity:</label>
+                    <input type="number"  name="quatity" class="form-control" style="width:70px"
+                 value="1" min="1" required />
+                </div>
+                <button type="submit" class="btn btn-primary">Add To Cart</button>
+            </form>
+        </div>
+    </div>
+</div>

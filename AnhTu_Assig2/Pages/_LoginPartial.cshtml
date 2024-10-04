@@ -1,0 +1,30 @@
+﻿
+@page
+@model AnhTu_Assig2.Pages.PrivacyModel
+
+
+    @if (ViewData["MySession"] != null)
+    {
+        <ul class="nav navbar-nav navbar-right">
+            <li class="nav-item">
+                Hello @ViewData["MySession"]
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-page="/CustomerCRUD/Login">Đăng Xuất</a>
+            </li>
+    </ul>
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li class="nav-item">
+            <a class="nav-link" asp-page="/CustomerCRUD/Create">Đăng ký</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" asp-page="/CustomerCRUD/Login">Đăng nhập</a>
+        </li>
+    </ul>
+}
+
+
+
